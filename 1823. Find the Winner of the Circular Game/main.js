@@ -8,20 +8,11 @@ var findTheWinner = function(n, k) {
     // console.log(friends);
     let start = 0;
     while (friends.length > 1) {
-        for (i = k; i > 1; i--) {
-            if (start === friends.length - 1) {
-                start = 0;
-            } else {
-                start++;
-            }
-        }
+        start = (start + k - 1) % friends.length;
         friends.splice(start, 1);
-        if (start === friends.length) {
-            start = 0;
-        }
         // console.log(friends);
     }
     return friends[0];
 };
 
-// console.log(findTheWinner(5, 2));
+// console.log(findTheWinner(6, 5));
